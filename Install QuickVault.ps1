@@ -1,6 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $installDir = Join-Path $env:LOCALAPPDATA 'Programs\QuickVault'
-$source = Join-Path $PSScriptRoot 'dist\QuickVault.exe'
+$sourceDir = Join-Path $PSScriptRoot 'dist\QuickVault'
+$source = Join-Path $sourceDir 'QuickVault.exe'
 if (-not (Test-Path -LiteralPath $source)) { throw 'Build QuickVault.exe before installing.' }
 New-Item -ItemType Directory -Path $installDir -Force | Out-Null
 $target = Join-Path $installDir 'QuickVault.exe'
@@ -11,7 +12,7 @@ if ($runningApp) {
 if (Test-Path -LiteralPath $target) {
     Copy-Item -LiteralPath $target -Destination (Join-Path $installDir 'QuickVault.previous.exe') -Force
 }
-Copy-Item -LiteralPath $source -Destination (Join-Path $installDir 'QuickVault.exe') -Force
+Get-ChildItem -LiteralPath $sourceDir | Copy-Item -Destination $installDir -Recurse -Force
 $shell = New-Object -ComObject WScript.Shell
 $shortcutDirs = @([Environment]::GetFolderPath('Desktop'), (Join-Path ([Environment]::GetFolderPath('StartMenu')) 'Programs'))
 foreach ($shortcutDir in $shortcutDirs) {

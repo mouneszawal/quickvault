@@ -6,7 +6,7 @@ if not exist ".venv\Scripts\python.exe" (
 )
 ".venv\Scripts\python.exe" -m pip install -r requirements.txt pyinstaller
 if errorlevel 1 goto failed
-".venv\Scripts\python.exe" -m PyInstaller --noconfirm --onefile --windowed --name QuickVault --icon assets\quickvault.ico --add-data "assets;assets" app.py
+".venv\Scripts\python.exe" -m PyInstaller --noconfirm --onedir --windowed --name QuickVault --icon assets\quickvault.ico --add-data "assets;assets" app.py
 if errorlevel 1 goto failed
 echo Build complete. Run Install QuickVault.bat to install.
 exit /b 0

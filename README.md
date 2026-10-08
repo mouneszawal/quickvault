@@ -32,10 +32,10 @@ From a fresh checkout, double-click **Build QuickVault.bat** first, then **Insta
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install pyinstaller
-.\.venv\Scripts\python.exe -m PyInstaller --onefile --windowed --name QuickVault --icon assets\quickvault.ico --add-data "assets;assets" app.py
+.\.venv\Scripts\python.exe -m PyInstaller --onedir --windowed --name QuickVault --icon assets\quickvault.ico --add-data "assets;assets" app.py
 ```
 
-The executable will be in `dist\QuickVault.exe`.
+The executable will be in `dist\QuickVault\QuickVault.exe`.
 
 ## Tests
 
