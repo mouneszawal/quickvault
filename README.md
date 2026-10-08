@@ -1,6 +1,8 @@
 # QuickVault
 
-A comfortable Python desktop app for Windows. Store quick notes, API keys, and environment-variable values with title/tag search, hidden secrets, and quick copy.
+A comfortable Python desktop app for Windows, built with PySide6 (Qt Widgets). Store quick notes, API keys, and environment-variable values with title/tag search, hidden secrets, and quick copy.
+
+![QuickVault interface](assets/interface-preview.png)
 
 ## Run
 
@@ -8,7 +10,7 @@ For the installed Windows app, double-click **Install QuickVault.bat**. This cop
 
 Save, Copy value, and Delete entry are in the fixed toolbar above the editor. Delete becomes available after an entry is saved or selected.
 
-Install Python 3.10 or newer with Tkinter (included in the standard Windows installer), then double-click **Run QuickVault.bat**. The launcher creates a private `.venv` environment so dependencies do not change your shared Python installation. Or run:
+Install Python 3.10 or newer, then double-click **Run QuickVault.bat**. The launcher creates a private `.venv` environment so dependencies do not change your shared Python installation. Or run:
 
 ```powershell
 py -m venv .venv
@@ -36,6 +38,8 @@ From a fresh checkout, double-click **Build QuickVault.bat** first, then **Insta
 The executable will be in `dist\QuickVault.exe`.
 
 ## Tests
+
+The PySide6 upgrade reads the same encrypted vault as the original Tkinter app. Close QuickVault before reinstalling. The installer keeps the previous executable as `QuickVault.previous.exe` and refreshes the Desktop and Start menu shortcuts.
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests

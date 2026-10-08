@@ -1,1 +1,2 @@
 cryptography>=46.0.0,<47
+PySide6>=6.8,<7
